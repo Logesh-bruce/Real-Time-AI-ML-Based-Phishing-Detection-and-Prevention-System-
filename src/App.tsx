@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Sidebar } from './components/layout/Sidebar';
 import { Header } from './components/layout/Header';
 import { DetectionPage } from './pages/DetectionPage';
@@ -6,6 +6,7 @@ import { DashboardPage } from './pages/DashboardPage';
 import { MonitoringPage } from './pages/MonitoringPage';
 import { ThreatIntelPage } from './pages/ThreatIntelPage';
 import { SettingsPage } from './pages/SettingsPage';
+import { wakeUpServer } from './lib/api';
 
 function AppContent() {
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -42,5 +43,9 @@ function AppContent() {
 }
 
 export default function App() {
+  useEffect(() => {
+    wakeUpServer();
+  }, []);
+
   return <AppContent />;
 }
