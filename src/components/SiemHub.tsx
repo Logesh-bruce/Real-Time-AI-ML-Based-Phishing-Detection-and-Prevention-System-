@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { API_BASE } from '../lib/api';
 import { Database, Activity, Settings, RefreshCw, CheckCircle2, XCircle, Play, Server, Webhook } from 'lucide-react';
 import { useSocket } from '../contexts/SocketContext';
 
@@ -60,7 +61,7 @@ export default function SiemHub() {
   useEffect(() => {
     const fetchConfigs = async () => {
       try {
-        const res = await fetch('/api/v1/siem/configs');
+        const res = await fetch(`${API_BASE}/api/v1/siem/configs`);
         const data = await res.json();
         if (data.configs && data.configs.length > 0) {
           setIntegrationsState(prev => prev.map(int => {
@@ -116,7 +117,7 @@ export default function SiemHub() {
     const enabled = (form.elements.namedItem('enable') as HTMLInputElement).checked;
 
     try {
-      const response = await fetch('/api/v1/siem/config', {
+      const response = await fetch(`${API_BASE}/api/v1/siem/config`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ type: selectedConfig, endpoint, token, enabled })

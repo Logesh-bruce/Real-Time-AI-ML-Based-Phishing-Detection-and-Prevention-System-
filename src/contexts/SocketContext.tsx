@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { io, Socket } from 'socket.io-client';
+import { WS_BASE } from '../lib/api';
 
 interface SocketContextType {
   socket: Socket | null;
@@ -16,7 +17,7 @@ export const SocketProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 
   useEffect(() => {
     // Connect to the same host/port the app is served from
-    const newSocket = io();
+    const newSocket = io(WS_BASE);
 
     newSocket.on('connect', () => {
       setIsConnected(true);

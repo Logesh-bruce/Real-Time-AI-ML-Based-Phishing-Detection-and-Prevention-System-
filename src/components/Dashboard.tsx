@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { API_BASE } from '../lib/api';
 import { Activity, ShieldAlert, Zap, Clock, ShieldCheck, Globe, Mail, MessageSquare, ArrowUpRight, ArrowDownRight, AlertTriangle } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 import { useSocket } from '../contexts/SocketContext';
@@ -40,7 +41,7 @@ export default function Dashboard() {
   useEffect(() => {
     const fetchDetections = async () => {
       try {
-        const res = await fetch('/api/v1/detections');
+        const res = await fetch(`${API_BASE}/api/v1/detections`);
         const data = await res.json();
         if (data.detections && data.detections.length > 0) {
           setRecentDetections(data.detections.map((d: any) => ({

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { API_BASE } from '../lib/api';
 import { ScoreCard } from '../components/detection/ScoreCard';
 import { IndicatorList } from '../components/detection/IndicatorList';
 import { Shield, Mail, FileText, AlertTriangle } from 'lucide-react';
@@ -38,7 +39,7 @@ export const DetectionPage: React.FC = () => {
     const startTime = Date.now();
 
     try {
-      const res = await fetch('/api/v1/detect', {
+      const res = await fetch(`${API_BASE}/api/v1/detect`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ type: activeTab, input, legitimate_domain: legitimateDomain })

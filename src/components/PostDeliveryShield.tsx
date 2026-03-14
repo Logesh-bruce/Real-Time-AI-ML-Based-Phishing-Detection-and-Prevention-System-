@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { API_BASE } from '../lib/api';
 import { ShieldAlert, CheckCircle2, Clock, XCircle, AlertTriangle, Play, Pause, RefreshCw, ShieldCheck } from 'lucide-react';
 import { useSocket } from '../contexts/SocketContext';
 
@@ -27,8 +28,8 @@ export default function PostDeliveryShield() {
     const fetchData = async () => {
       try {
         const [remRes, audRes] = await Promise.all([
-          fetch('/api/v1/remediations'),
-          fetch('/api/v1/audit_logs')
+          fetch(`${API_BASE}/api/v1/remediations`),
+          fetch(`${API_BASE}/api/v1/audit_logs`)
         ]);
         const remData = await remRes.json();
         const audData = await audRes.json();
@@ -101,7 +102,7 @@ export default function PostDeliveryShield() {
     if (!selectedRemediation) return;
     
     try {
-      const response = await fetch('/api/v1/remediation/quarantine', {
+      const response = await fetch(`${API_BASE}/api/v1/remediation/quarantine`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id: selectedRemediation.id, action: 'RELEASE' })

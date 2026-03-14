@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_BASE } from '../lib/api';
 import { io, Socket } from 'socket.io-client';
 import { Activity, ShieldAlert, Zap } from 'lucide-react';
 
@@ -29,8 +30,8 @@ export const MonitoringPage: React.FC = () => {
     const fetchInitialData = async () => {
       try {
         const [detRes, corrRes] = await Promise.all([
-          fetch('/api/v1/detections').then(res => res.json()),
-          fetch('/api/v1/correlation/active').then(res => res.json())
+          fetch(`${API_BASE}/api/v1/detections`).then(res => res.json()),
+          fetch(`${API_BASE}/api/v1/correlation/active`).then(res => res.json())
         ]);
 
         if (detRes.detections) {

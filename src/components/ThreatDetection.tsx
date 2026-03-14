@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { API_BASE } from '../lib/api';
 import { Shield, ShieldAlert, ShieldCheck, Activity, Search, AlertTriangle, FileJson, CheckCircle2, XCircle, ChevronRight, Globe, Mail, MessageSquare, Layers } from 'lucide-react';
 
 export default function ThreatDetection() {
@@ -14,7 +15,7 @@ export default function ThreatDetection() {
     setResult(null);
     
     try {
-      const response = await fetch('/api/v1/analyze', {
+      const response = await fetch(`${API_BASE}/api/v1/analyze`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ payload: input, type: activeTab })

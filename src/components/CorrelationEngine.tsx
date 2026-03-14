@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { API_BASE } from '../lib/api';
 import { Network, Mail, Globe, MessageSquare, ArrowRight, ShieldAlert, Database, Clock } from 'lucide-react';
 import { useSocket } from '../contexts/SocketContext';
 
@@ -61,7 +62,7 @@ export default function CorrelationEngine() {
 
   useEffect(() => {
     // Fetch initial correlations
-    fetch('/api/v1/correlation/active')
+    fetch(`${API_BASE}/api/v1/correlation/active`)
       .then(res => res.json())
       .then(data => {
         if (data.correlations && data.correlations.length > 0) {
