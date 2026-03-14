@@ -27,5 +27,5 @@ A complete, real-time, full-stack SaaS application for detecting and preventing 
 - `frontend`: The Next.js dashboard for real-time monitoring.
 
 ## API Authentication
-The API Gateway requires an API key in the `x-api-key` header.
-Default Dev Key: `testkey_smoke_test_12345`
+The API Gateway requires an API key in the  header.
+Default Dev Key
