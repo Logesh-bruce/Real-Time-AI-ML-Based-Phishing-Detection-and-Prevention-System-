@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+torch
+torchvision
+pydantic
+python-dotenv
+playwright
+Pillow

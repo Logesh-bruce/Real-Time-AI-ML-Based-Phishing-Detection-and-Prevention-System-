@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+torch
+torch-geometric
+pydantic
+python-dotenv
+scikit-learn
+tldextract

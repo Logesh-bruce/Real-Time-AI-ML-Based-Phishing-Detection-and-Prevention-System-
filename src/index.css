@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'SF Mono', 'Monaco', monospace;
+  
+  --color-bg-primary: #FFFFFF;
+  --color-bg-surface: #F9F9F8;
+  --color-bg-sidebar: #F5F4EF;
+  --color-bg-sidebar-active: #E8E8E3;
+  
+  --color-border-subtle: #E5E5E3;
+  --color-border-active: #D4D4D4;
+  
+  --color-accent-primary: #2563EB;
+  --color-accent-green: #16A34A;
+  --color-accent-red: #DC2626;
+  --color-accent-orange: #D97706;
+  
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #6B6B6B;
+  --color-text-muted: #9B9B9B;
+}
+
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* Smooth scrollbar styling (thin, gray) */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E5E5E3;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D4D4D4;
+}
+
+/* Base typography styles */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+p {
+  font-weight: 400;
+  margin: 0;
+}
+
+label {
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.mono-data {
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+/* Component Style Rules */
+.claude-card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+.claude-input {
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 8px;
+  transition: all 150ms ease;
+}
+
+.claude-input:focus {
+  outline: none;
+  border-color: var(--color-accent-primary);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+.claude-button-primary {
+  background-color: #1A1A1A;
+  color: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: none;
+  transition: all 150ms ease;
+}
+
+.claude-button-primary:hover {
+  background-color: #333333;
+}
+
+.claude-button-secondary {
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-border-subtle);
+  color: #1A1A1A;
+  border-radius: 8px;
+  box-shadow: none;
+  transition: all 150ms ease;
+}
+
+.claude-button-secondary:hover {
+  background-color: #F9F9F8;
+}
