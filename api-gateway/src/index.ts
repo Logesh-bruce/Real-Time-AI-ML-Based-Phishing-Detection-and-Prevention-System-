@@ -2,7 +2,6 @@ import express from 'express';
 import cors from 'cors';
 import { createProxyMiddleware } from 'http-proxy-middleware';
 import dotenv from 'dotenv';
-
 dotenv.config();
 
 const app = express();
@@ -10,6 +9,11 @@ app.use(cors());
 
 const PORT = process.env.PORT || 8080;
 const DETECTION_API_URL = process.env.DETECTION_API_URL || 'http://localhost:3001';
+
+// ✅ Health check — MUST be before API key middleware
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'ok', service: 'api-gateway' });
+});
 
 // API Key Middleware
 app.use('/api', (req, res, next) => {
