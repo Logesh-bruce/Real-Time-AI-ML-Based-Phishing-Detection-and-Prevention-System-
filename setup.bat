@@ -10,7 +10,7 @@ python train.py
 copy .env.example .env
 deactivate
 cd ..
-
+ 
 echo [2/6] Setting up URL Service...
 cd url-service
 python -m venv venv
