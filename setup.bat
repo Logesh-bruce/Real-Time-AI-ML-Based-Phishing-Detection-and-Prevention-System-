@@ -1,6 +1,6 @@
 @echo off
 echo Setting up PhishGuard AI System...
-
+ 
 echo [1/6] Setting up NLP Service...
 cd nlp-service
 python -m venv venv
